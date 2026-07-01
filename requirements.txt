@@ -1,0 +1,24 @@
+Flask>=2.2,<3.0
+Flask-Cors
+Flask-Session
+python-dotenv
+SQLAlchemy
+PyMySQL
+pandas
+gunicorn
+
+# File upload and document reading
+PyPDF2
+python-docx
+xlrd
+openpyxl
+pillow
+
+# LangChain & LangGraph Stack
+langchain
+langgraph
+langchain-community
+langchain-google-genai
+
+# OpenAI (optional fallback)
+openai<2.0.0

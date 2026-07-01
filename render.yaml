@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: banking-data-assistant
+    runtime: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app --bind 0.0.0.0:$PORT --timeout 120"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false  # YOU will set this manually in Render dashboard
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.5-lite
+      - key: UPLOAD_FOLDER
+        value: /tmp/uploads  # Use /tmp for file uploads (Render free tier is ephemeral)
+      - key: ALLOWED_EXTENSIONS
+        value: pdf,docx,txt,csv,xls,xlsx,png,jpg,jpeg
+      - key: SENSITIVE_COLUMNS
+        value: password,ssn,credit_card,account_number,pin
+      - key: BLOCKED_QUERIES
+        value: drop,delete,truncate,update,insert,alter,create
