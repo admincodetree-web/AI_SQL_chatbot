@@ -15,7 +15,7 @@ services:
       - key: GEMINI_API_KEY
         sync: false
       - key: GEMINI_MODEL
-        value: gemini-2.5-lite
+        value: gemini-2.5-flash
       - key: UPLOAD_FOLDER
         value: /tmp/uploads  # Use /tmp for file uploads (Render free tier is ephemeral)
       - key: ALLOWED_EXTENSIONS
